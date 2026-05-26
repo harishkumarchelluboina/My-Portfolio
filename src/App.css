@@ -1,0 +1,117 @@
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --bg-tertiary: #252d4a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b8d4;
+  --accent-primary: #00d9ff;
+  --accent-secondary: #0078d4;
+  --accent-tertiary: #50e6ff;
+  --success: #50fa7c;
+  --warning: #ffb900;
+  --error: #ff6b6b;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-tertiary: #eef2f8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent-primary: #0078d4;
+  --accent-secondary: #00a4ef;
+  --accent-tertiary: #50e6ff;
+  --success: #107c10;
+  --warning: #ffb900;
+  --error: #d13438;
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="azure"] {
+  --bg-primary: #0d1b2a;
+  --bg-secondary: #1a3a52;
+  --bg-tertiary: #2d5a7b;
+  --text-primary: #e0f2fe;
+  --text-secondary: #94d5ff;
+  --accent-primary: #00d9ff;
+  --accent-secondary: #0078d4;
+  --accent-tertiary: #50e6ff;
+  --success: #06b6d4;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --border: rgba(0, 217, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+}
+
+section {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.4rem; }
+  
+  section {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.4rem; }
+  
+  section {
+    padding: 40px 12px;
+  }
+}

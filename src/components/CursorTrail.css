@@ -1,0 +1,10 @@
+.cursor-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-primary);
+  z-index: 9999;
+}
