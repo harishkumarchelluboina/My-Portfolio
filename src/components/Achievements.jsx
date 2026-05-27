@@ -32,7 +32,6 @@ function CounterCard({ value, label, unit = "" }) {
         </div>
         <div className="card-label">{label}</div>
       </div>
-      <div className="card-accent"></div>
     </div>
   );
 }
@@ -149,12 +148,12 @@ export default function Achievements({ data }) {
           </div>
         </div>
 
-        <div className="download-tracker">
+        {/* <div className="download-tracker">
           <p>Resumes Downloaded: {downloadCount}</p>
           <div className="download-progress">
             <div className="progress-bar"></div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

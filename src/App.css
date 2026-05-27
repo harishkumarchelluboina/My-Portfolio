@@ -38,7 +38,7 @@
   --accent-primary: #00d9ff;
   --accent-secondary: #0078d4;
   --accent-tertiary: #50e6ff;
-  --success: #06b6d4;
+  --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
   --border: rgba(0, 217, 255, 0.2);
@@ -74,8 +74,8 @@ main {
 }
 
 section {
-  padding: 100px 20px;
-  max-width: 1200px;
+  padding: 80px 40px;
+  max-width: 100%;
   margin: 0 auto;
 }
 

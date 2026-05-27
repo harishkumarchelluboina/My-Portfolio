@@ -27,8 +27,11 @@ export default function Header() {
     <header className="header">
       <nav className="navbar">
         <div className="nav-brand">
-          <div className="status-indicator pulse"></div>
-          <span>Data Engineer</span>
+          <svg className="nav-logo" viewBox="0 0 100 100" width="32" height="32">
+            <path d="M20 50 L50 20 L80 50 M50 20 L50 80 M20 50 L80 80" fill="none" stroke="currentColor" strokeWidth="2" />
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2" />
+          </svg>
+          <span>Portfolio</span>
         </div>
 
         <ul className="nav-links">
@@ -46,6 +49,9 @@ export default function Header() {
           </li>
           <li>
             <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
 

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import "./Projects.css";
 
 export default function Projects({ data }) {
   const projects = data.experience[0].projects;
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section id="projects" className="projects-section">
@@ -52,10 +54,59 @@ export default function Projects({ data }) {
               </div>
             </div>
 
-            <button className="btn-details">View Details →</button>
+            <button 
+              className="btn-details"
+              onClick={() => setSelectedProject(project)}
+            >
+              View Details →
+            </button>
           </div>
         ))}
       </div>
+
+      {selectedProject && (
+        <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedProject(null)}>✕</button>
+            <h2>{selectedProject.name}</h2>
+            <p className="modal-period">{selectedProject.period}</p>
+            
+            <div className="modal-section">
+              <h3>Project Overview</h3>
+              <p>{selectedProject.description || "Building scalable data solutions for enterprise clients"}</p>
+            </div>
+
+            <div className="modal-section">
+              <h3>Key Highlights</h3>
+              <ul className="modal-highlights">
+                {selectedProject.highlights.map((highlight, idx) => (
+                  <li key={idx}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="modal-section">
+              <div className="modal-info">
+                <div>
+                  <strong>Client:</strong> {selectedProject.client}
+                </div>
+                <div>
+                  <strong>Impact:</strong> {selectedProject.impact}
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-section">
+              <h3>Technology Stack</h3>
+              <div className="modal-tech-tags">
+                {selectedProject.techStack.map((tech, idx) => (
+                  <span key={idx} className="modal-tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

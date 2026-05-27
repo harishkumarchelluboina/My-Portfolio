@@ -8,19 +8,43 @@ function InteractiveSkillsGraph() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
+    let animationFrameId;
 
-    // Skill nodes
-    const skills = [
-      { name: "Python", x: 150, y: 150, category: "programming" },
-      { name: "PySpark", x: 300, y: 100, category: "programming" },
-      { name: "SQL", x: 300, y: 200, category: "programming" },
-      { name: "Azure Databricks", x: 450, y: 150, category: "azure" },
-      { name: "Data Factory", x: 450, y: 250, category: "azure" },
-      { name: "Delta Lake", x: 450, y: 50, category: "architecture" },
-      { name: "ETL/ELT", x: 600, y: 150, category: "architecture" },
+    const updateCanvasSize = () => {
+      const pixelRatio = window.devicePixelRatio || 1;
+      const { width, height } = canvas.getBoundingClientRect();
+      canvas.width = Math.max(width, 1) * pixelRatio;
+      canvas.height = Math.max(height, 1) * pixelRatio;
+
+      const ctx = canvas.getContext("2d");
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    };
+
+    updateCanvasSize();
+    window.addEventListener("resize", updateCanvasSize);
+    const resizeObserver = new ResizeObserver(updateCanvasSize);
+    resizeObserver.observe(canvas);
+
+    const ctx = canvas.getContext("2d");
+
+    const wideLayout = [
+      { name: "Python", x: 0.12, y: 0.52, category: "programming" },
+      { name: "PySpark", x: 0.27, y: 0.32, category: "programming" },
+      { name: "SQL", x: 0.28, y: 0.72, category: "programming" },
+      { name: "Azure Databricks", x: 0.52, y: 0.5, category: "azure" },
+      { name: "Data Factory", x: 0.52, y: 0.78, category: "azure" },
+      { name: "Delta Lake", x: 0.52, y: 0.22, category: "architecture" },
+      { name: "ETL/ELT", x: 0.82, y: 0.5, category: "architecture" },
+    ];
+
+    const compactLayout = [
+      { name: "Python", x: 0.14, y: 0.5, category: "programming" },
+      { name: "PySpark", x: 0.3, y: 0.28, category: "programming" },
+      { name: "SQL", x: 0.3, y: 0.72, category: "programming" },
+      { name: "Azure Databricks", x: 0.53, y: 0.5, category: "azure" },
+      { name: "Data Factory", x: 0.53, y: 0.78, category: "azure" },
+      { name: "Delta Lake", x: 0.53, y: 0.22, category: "architecture" },
+      { name: "ETL/ELT", x: 0.82, y: 0.5, category: "architecture" },
     ];
 
     // Connection rules
@@ -42,44 +66,62 @@ function InteractiveSkillsGraph() {
     };
 
     const animate = (time) => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      const isCompact = width < 900;
+      const layout = isCompact ? compactLayout : wideLayout;
+      const padding = isCompact ? 22 : 40;
+      const graphWidth = Math.max(width - padding * 2, 1);
+      const graphHeight = Math.max(height - padding * 2, 1);
+      const nodeRadius = isCompact ? 8 : 11;
+      const fontSize = width < 520 ? 9 : 11;
+      const positions = layout.map((skill) => ({
+        ...skill,
+        x: padding + skill.x * graphWidth,
+        y: padding + skill.y * graphHeight,
+      }));
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.88)";
       ctx.fillRect(0, 0, width, height);
 
-      // Draw connections
       ctx.strokeStyle = "rgba(100, 200, 255, 0.3)";
       ctx.lineWidth = 1;
       connections.forEach(([from, to]) => {
-        const f = skills[from];
-        const t = skills[to];
+        const f = positions[from];
+        const t = positions[to];
         ctx.beginPath();
         ctx.moveTo(f.x, f.y);
         ctx.lineTo(t.x, t.y);
         ctx.stroke();
       });
 
-      // Draw nodes
-      skills.forEach((skill) => {
-        const pulse = Math.sin(time * 0.005 + skill.x) * 5 + 10;
+      positions.forEach((skill) => {
+        const pulse = Math.sin(time * 0.005 + skill.x) * 3 + nodeRadius;
         ctx.fillStyle = colors[skill.category];
         ctx.beginPath();
         ctx.arc(skill.x, skill.y, pulse, 0, Math.PI * 2);
         ctx.fill();
 
-        // Label
         ctx.fillStyle = "#fff";
-        ctx.font = "11px monospace";
+        ctx.font = `700 ${fontSize}px monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(skill.name, skill.x, skill.y);
       });
 
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate(0);
+    animationFrameId = requestAnimationFrame(animate);
+    return () => {
+      window.removeEventListener("resize", updateCanvasSize);
+      resizeObserver.disconnect();
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
-  return <canvas ref={canvasRef} width={700} height={350} />;
+  return <canvas ref={canvasRef} />;
 }
 
 export default function Skills({ data }) {

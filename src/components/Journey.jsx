@@ -1,6 +1,6 @@
 import "./Journey.css";
 
-export default function Journey({ data }) {
+export default function Journey() {
   const journeySteps = [
     {
       year: "2017",

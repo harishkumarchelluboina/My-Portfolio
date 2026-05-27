@@ -1,36 +1,48 @@
 .skills-section {
-  padding: 80px 20px;
+  padding: 72px clamp(12px, 3vw, 40px);
   background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 50%);
 }
 
 .skills-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   margin-bottom: 4rem;
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skills-graph {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 8px;
+  padding: clamp(1rem, 2.4vw, 2rem);
   animation: slideInLeft 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .skills-graph h3 {
   margin-bottom: 1.5rem;
   color: var(--accent-primary);
+  flex-shrink: 0;
 }
 
 .skills-graph canvas {
+  display: block;
   width: 100%;
+  height: clamp(260px, 28vw, 360px);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .skills-breakdown {
   animation: slideInRight 0.8s ease;
+  width: 100%;
 }
 
 .skills-grid {
@@ -90,6 +102,9 @@
   border-radius: 12px;
   padding: 2rem;
   animation: fadeInUp 0.8s ease;
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skill-distribution h3 {
@@ -181,8 +196,54 @@
 }
 
 @media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 12px;
+  }
+
+  .skills-content {
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .skills-graph {
+    padding: 1rem;
+  }
+
+  .skills-graph h3 {
+    margin-bottom: 1rem;
+  }
+
+  .skills-graph canvas {
+    height: 240px;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-category,
+  .skill-distribution {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 48px 8px;
+  }
+
+  .skills-graph {
+    padding: 0.75rem;
+  }
+
+  .skills-graph canvas {
+    height: 220px;
+  }
+
+  .skill-tag {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -193,6 +254,9 @@
   padding: 3rem 2rem;
   animation: fadeInUp 0.8s ease;
   margin-top: 3rem;
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skill-logos h3 {

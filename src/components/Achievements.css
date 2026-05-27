@@ -76,22 +76,6 @@
   margin: 0;
 }
 
-.card-accent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.achievement-card:hover .card-accent {
-  transform: scaleX(1);
-}
-
 .kpi-section {
   margin: 4rem 0;
 }

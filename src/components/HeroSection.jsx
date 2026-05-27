@@ -63,25 +63,6 @@ export default function HeroSection({ data }) {
           </div>
         </div>
       </div>
-
-      <div className="stats-grid">
-        <div className="stat-card">
-          <div className="stat-value counter">{data.stats.pipelinesBuilt}</div>
-          <div className="stat-label">Pipelines Built</div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-value">{data.stats.recordsProcessed}</div>
-          <div className="stat-label">Records Processed</div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-value">{data.stats.uptime}</div>
-          <div className="stat-label">Uptime Achieved</div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-value">{data.stats.yearsExperience}</div>
-          <div className="stat-label">Years Experience</div>
-        </div>
-      </div>
     </section>
   );
 }

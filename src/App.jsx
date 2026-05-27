@@ -12,6 +12,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import AskMe from "./components/AskMe";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CursorTrail from "./components/CursorTrail";
 import ThemeProvider from "./context/ThemeContext";
@@ -44,6 +45,7 @@ function AppContent() {
         <Skills data={resumeData} />
         <Achievements data={resumeData} />
         <AskMe />
+        <Contact data={resumeData} />
         <Footer data={resumeData} />
       </main>
     </div>
