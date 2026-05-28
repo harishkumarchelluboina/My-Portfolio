@@ -3,7 +3,7 @@ import "./Journey.css";
 export default function Journey() {
   const journeySteps = [
     {
-      year: "2017",
+      year: "2021",
       title: "Mechanical Engineering Graduate",
       description: "Graduated with B.Tech in Mechanical Engineering",
       type: "education",
@@ -27,16 +27,16 @@ export default function Journey() {
       type: "project",
     },
     {
-      year: "2024",
-      title: "Databricks Certification",
-      description: "Certified Data Engineer Professional",
-      type: "certification",
-    },
-    {
       year: "2025",
       title: "Managed Care Platform",
       description: "Architecting scalable ELT pipelines for MLTSS data",
       type: "project",
+    },
+    {
+      year: "2026",
+      title: "Databricks Certification",
+      description: "Certified Data Engineer Professional",
+      type: "certification",
     },
   ];
 

@@ -39,7 +39,7 @@ export default function HeroSection({ data }) {
               View My Work
             </a>
             <a
-              href={`mailto:${data.personal.email}`}
+              href="#contact"
               className="btn-secondary"
             >
               Get In Touch

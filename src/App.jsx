@@ -43,7 +43,7 @@ function AppContent() {
         <Journey data={resumeData} />
         <Projects data={resumeData} />
         <Skills data={resumeData} />
-        <Achievements data={resumeData} />
+        {/* <Achievements data={resumeData} /> */}
         <AskMe />
         <Contact data={resumeData} />
         <Footer data={resumeData} />

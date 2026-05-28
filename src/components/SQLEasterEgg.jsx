@@ -69,7 +69,7 @@ export default function SQLEasterEgg() {
                   <td>Chelluboina Harish Kumar</td>
                   <td>Azure Data Engineer</td>
                   <td>Python, PySpark, SQL, Azure Databricks, Delta Lake</td>
-                  <td>4+</td>
+                  <td>4.5+</td>
                 </tr>
                 <tr>
                   <td>2</td>

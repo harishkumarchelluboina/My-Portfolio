@@ -57,8 +57,15 @@ export default function Footer({ data }) {
       <div className="footer-bottom">
         <div className="footer-line"></div>
         <p>
-          © {currentYear} {data.personal.name}. Crafted with ❤️ and built with
-          React + Vite
+          © {currentYear} Portfolio developed by{" "}
+          <a
+            href="https://github.com/VasanthiSirikonda"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vasanthi Sirikonda
+          </a>
+          .
         </p>
         <p className="tech-stack-footer">
           Featuring Azure, Databricks, Data Lakehouse Architecture

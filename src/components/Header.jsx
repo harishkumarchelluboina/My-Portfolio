@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { downloadResume, getDownloadCount } from "../utils/downloadTracker";
+import logo from "../assets/logo.png";
 import "./Header.css";
 
 export default function Header() {
@@ -8,29 +9,15 @@ export default function Header() {
   const [downloadCount, setDownloadCount] = useState(getDownloadCount());
 
   const handleResumeDownload = () => {
-    try {
-      // Try to download from public folder
-      const link = document.createElement("a");
-      link.href = "/Harish-Kumar-Resume.pdf";
-      link.download = "Harish-Kumar-Resume.pdf";
-      link.click();
-      
-      // Update download count
-      const newCount = downloadResume("Harish-Kumar-Resume.pdf");
-      setDownloadCount(newCount);
-    } catch (error) {
-      console.log("Download initiated");
-    }
+    const newCount = downloadResume("Harish-Kumar-Resume.pdf");
+    setDownloadCount(newCount);
   };
 
   return (
     <header className="header">
       <nav className="navbar">
         <div className="nav-brand">
-          <svg className="nav-logo" viewBox="0 0 100 100" width="32" height="32">
-            <path d="M20 50 L50 20 L80 50 M50 20 L50 80 M20 50 L80 80" fill="none" stroke="currentColor" strokeWidth="2" />
-            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-          </svg>
+          <img className="nav-logo" src={logo} alt="Portfolio logo" />
           <span>Portfolio</span>
         </div>
 

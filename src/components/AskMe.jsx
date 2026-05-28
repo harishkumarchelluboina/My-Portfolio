@@ -11,12 +11,13 @@ export default function AskMe() {
   const sqlSkillsTable = {
     query: `SELECT * FROM harish.skills`,
     result: [
-      { Skill: "Python", Level: "Expert", YearsExperience: 4 },
-      { Skill: "PySpark", Level: "Expert", YearsExperience: 4 },
-      { Skill: "SQL", Level: "Advanced", YearsExperience: 4 },
-      { Skill: "Azure Databricks", Level: "Expert", YearsExperience: 4 },
-      { Skill: "Data Architecture", Level: "Advanced", YearsExperience: 4 },
-      { Skill: "Azure Data Factory", Level: "Expert", YearsExperience: 3 },
+      { Skill: "Python", Level: "Expert", YearsExperience: 4.5 },
+      { Skill: "PySpark", Level: "Expert", YearsExperience: 4.5 },
+      { Skill: "SQL", Level: "Advanced", YearsExperience: 4.5 },
+      { Skill: "Azure Databricks", Level: "Expert", YearsExperience: 4.5 },
+      { Skill: "Data Architecture", Level: "Advanced", YearsExperience: 4.5 },
+      { Skill: "Azure Data Factory", Level: "Expert", YearsExperience: 4.5 },
+      { Skill: "Power BI", Level: "Expert", YearsExperience: 2 },
     ],
   };
 
@@ -47,27 +48,29 @@ export default function AskMe() {
         <button class="close-btn" onclick="this.parentElement.parentElement.remove()">✕</button>
         <h3>SQL Easter Egg Unlocked! 🎉</h3>
         <pre>${sqlSkillsTable.query}</pre>
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Level</th>
-              <th>Years</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${sqlSkillsTable.result
-              .map(
-                (row) =>
-                  `<tr>
-                <td>${row.Skill}</td>
-                <td>${row.Level}</td>
-                <td>${row.YearsExperience}</td>
-              </tr>`
-              )
-              .join("")}
-          </tbody>
-        </table>
+        <div class="sql-results-scroll">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Skill</th>
+                <th>Level</th>
+                <th>Years</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${sqlSkillsTable.result
+                .map(
+                  (row) =>
+                    `<tr>
+                  <td>${row.Skill}</td>
+                  <td>${row.Level}</td>
+                  <td>${row.YearsExperience}</td>
+                </tr>`
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
       </div>
     `;
     document.body.appendChild(modal);
@@ -92,7 +95,7 @@ export default function AskMe() {
       // Since we don't have a real Claude API key here, we'll use mock responses
       // In production, you would need to set up a backend to call Claude API
       const mockAnswers = {
-        experience: `I have 4+ years of experience as an Azure Data Engineer. I've worked on two major projects:
+        experience: `I have 4.5+ years of experience as an Azure Data Engineer. I've worked on two major projects:
         
 1. ImpactPro (Healthcare Data Platform) - Built ETL/ELT pipelines processing large-scale healthcare datasets with Medallion Architecture and achieved 40% reduction in manual effort.
 
