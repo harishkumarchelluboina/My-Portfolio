@@ -10,6 +10,7 @@ import About from "./components/About";
 import Journey from "./components/Journey";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Certifications from "./components/Certifications";
 import Achievements from "./components/Achievements";
 import AskMe from "./components/AskMe";
 import Contact from "./components/Contact";
@@ -43,6 +44,7 @@ function AppContent() {
         <Journey data={resumeData} />
         <Projects data={resumeData} />
         <Skills data={resumeData} />
+        <Certifications />
         {/* <Achievements data={resumeData} /> */}
         <AskMe />
         <Contact data={resumeData} />

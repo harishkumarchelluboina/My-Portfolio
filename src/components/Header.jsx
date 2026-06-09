@@ -7,6 +7,7 @@ import "./Header.css";
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const [downloadCount, setDownloadCount] = useState(getDownloadCount());
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleResumeDownload = () => {
     const newCount = downloadResume("Harish-Kumar-Resume.pdf");
@@ -21,24 +22,39 @@ export default function Header() {
           <span>Portfolio</span>
         </div>
 
-        <ul className="nav-links">
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul className={`nav-links ${isMenuOpen ? "is-open" : ""}`}>
           <li>
-            <a href="#hero">Home</a>
+            <a href="#hero" onClick={() => setIsMenuOpen(false)}>Home</a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
           </li>
           <li>
-            <a href="#journey">Journey</a>
+            <a href="#journey" onClick={() => setIsMenuOpen(false)}>Journey</a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
           </li>
           <li>
-            <a href="#skills">Skills</a>
+            <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="#certifications" onClick={() => setIsMenuOpen(false)}>Certifications</a>
+          </li>
+          <li>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
           </li>
         </ul>
 

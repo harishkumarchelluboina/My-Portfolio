@@ -246,3 +246,35 @@
     padding: 1.5rem;
   }
 }
+
+[data-theme="light"] .contact-section {
+  background: linear-gradient(180deg, transparent 0%, #f4f5f7 50%);
+}
+
+[data-theme="light"] .info-item,
+[data-theme="light"] .contact-form {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .info-text p,
+[data-theme="light"] .info-text a {
+  color: #475569;
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+  background: #fbfcfd;
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+[data-theme="light"] .info-icon {
+  color: #b45309;
+}
+
+[data-theme="light"] .social-btn {
+  background: #ffffff;
+  color: #256f5b;
+  border-color: rgba(37, 111, 91, 0.28);
+}

@@ -59,13 +59,21 @@ function InteractiveSkillsGraph() {
       [4, 6],
     ];
 
-    const colors = {
+    const darkColors = {
       programming: "#00D9FF",
       azure: "#0078D4",
       architecture: "#50E6FF",
     };
 
+    const lightColors = {
+      programming: "#0f766e",
+      azure: "#0f6cbd",
+      architecture: "#b45309",
+    };
+
     const animate = (time) => {
+      const isLightTheme = document.documentElement.getAttribute("data-theme") === "light";
+      const colors = isLightTheme ? lightColors : darkColors;
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
       const isCompact = width < 900;
@@ -82,10 +90,10 @@ function InteractiveSkillsGraph() {
       }));
 
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "rgba(0, 0, 0, 0.88)";
+      ctx.fillStyle = isLightTheme ? "#fbfcfd" : "rgba(0, 0, 0, 0.88)";
       ctx.fillRect(0, 0, width, height);
 
-      ctx.strokeStyle = "rgba(100, 200, 255, 0.3)";
+      ctx.strokeStyle = isLightTheme ? "rgba(71, 85, 105, 0.28)" : "rgba(100, 200, 255, 0.3)";
       ctx.lineWidth = 1;
       connections.forEach(([from, to]) => {
         const f = positions[from];
@@ -103,7 +111,7 @@ function InteractiveSkillsGraph() {
         ctx.arc(skill.x, skill.y, pulse, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = isLightTheme ? "#111827" : "#fff";
         ctx.font = `700 ${fontSize}px monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";

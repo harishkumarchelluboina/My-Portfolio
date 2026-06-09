@@ -322,3 +322,37 @@
     grid-template-columns: 1fr;
   }
 }
+
+[data-theme="light"] .ask-me-section {
+  background: linear-gradient(180deg, transparent 0%, #f4f5f7 50%);
+}
+
+[data-theme="light"] .question-form,
+[data-theme="light"] .suggestion-btn,
+[data-theme="light"] .answer-box,
+[data-theme="light"] .sql-content {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .question-input,
+[data-theme="light"] .sql-content pre {
+  background: #fbfcfd;
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+[data-theme="light"] .suggestion-btn {
+  color: #334155;
+}
+
+[data-theme="light"] .suggestion-btn:hover {
+  background: #f8fafc;
+  border-color: rgba(37, 111, 91, 0.35);
+}
+
+[data-theme="light"] .hint,
+[data-theme="light"] .answer-box p,
+[data-theme="light"] .results-table td {
+  color: #475569;
+}

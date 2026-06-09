@@ -15,18 +15,18 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f7fa;
-  --bg-tertiary: #eef2f8;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --accent-primary: #0078d4;
-  --accent-secondary: #00a4ef;
-  --accent-tertiary: #50e6ff;
-  --success: #107c10;
-  --warning: #ffb900;
-  --error: #d13438;
-  --border: rgba(0, 0, 0, 0.1);
+  --bg-primary: #fbfcfd;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e8edf2;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-primary: #0f6cbd;
+  --accent-secondary: #256f5b;
+  --accent-tertiary: #b45309;
+  --success: #047857;
+  --warning: #b45309;
+  --error: #b91c1c;
+  --border: rgba(15, 23, 42, 0.12);
 }
 
 [data-theme="azure"] {
@@ -93,6 +93,16 @@ a {
   color: var(--accent-primary);
   text-decoration: none;
   transition: color 0.3s;
+}
+
+[data-theme="light"] .section-title {
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .section-subtitle {
+  color: var(--text-secondary);
 }
 
 

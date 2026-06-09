@@ -8,7 +8,7 @@ export default function Footer({ data }) {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Connect With Me</h3>
-          <div className="social-links">
+          <div className="footer-social-links">
             <a href={`mailto:${data.personal.email}`} className="social-link">
               ✉️ Email
             </a>
@@ -40,6 +40,9 @@ export default function Footer({ data }) {
             </li>
             <li>
               <a href="#skills">Skills</a>
+            </li>
+            <li>
+              <a href="#certifications">Certifications</a>
             </li>
             <li>
               <a href="#ask-me">Ask Me</a>
